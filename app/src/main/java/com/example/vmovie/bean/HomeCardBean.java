@@ -7,6 +7,14 @@ import java.util.List;
  */
 
 public class HomeCardBean {
+    @Override
+    public String toString() {
+        return "HomeCardBean{" +
+                "status='" + status + '\'' +
+                ", msg='" + msg + '\'' +
+                ", data=" + data.toString() +
+                '}';
+    }
 
     /**
      * status : 0
@@ -43,6 +51,34 @@ public class HomeCardBean {
     }
 
     public static class DataBean {
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "postid='" + postid + '\'' +
+                    ", title='" + title + '\'' +
+                    ", wx_small_app_title='" + wx_small_app_title + '\'' +
+                    ", pid='" + pid + '\'' +
+                    ", app_fu_title='" + app_fu_title + '\'' +
+                    ", is_xpc='" + is_xpc + '\'' +
+                    ", is_promote='" + is_promote + '\'' +
+                    ", is_xpc_zp='" + is_xpc_zp + '\'' +
+                    ", is_xpc_cp='" + is_xpc_cp + '\'' +
+                    ", is_xpc_fx='" + is_xpc_fx + '\'' +
+                    ", is_album='" + is_album + '\'' +
+                    ", tags='" + tags + '\'' +
+                    ", recent_hot='" + recent_hot + '\'' +
+                    ", discussion='" + discussion + '\'' +
+                    ", image='" + image + '\'' +
+                    ", rating='" + rating + '\'' +
+                    ", duration='" + duration + '\'' +
+                    ", publish_time='" + publish_time + '\'' +
+                    ", like_num='" + like_num + '\'' +
+                    ", share_num='" + share_num + '\'' +
+                    ", request_url='" + request_url + '\'' +
+                    ", cates=" + cates +
+                    '}';
+        }
+
         /**
          * postid : 51315
          * title : 耐克最新女性酷炫广告《真我》

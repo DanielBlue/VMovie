@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.example.vmovie.BuildConfig;
 import com.example.vmovie.R;
 import com.example.vmovie.adapter.HomeListAdapter;
 import com.example.vmovie.bean.HomeCardBean;
@@ -16,6 +15,8 @@ import com.example.vmovie.util.Constant;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,16 +30,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @EFragment(R.layout.fragment_home)
 public class HomeFragment extends Fragment {
+    List<HomeCardBean.DataBean> dataBeanList;
     @ViewById
     RecyclerView rv_list;
     @ViewById
     SwipeRefreshLayout srl_refresh;
 
     @AfterViews
-    void initView(){
+    void initView() {
         getData();
-        rv_list.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rv_list.setAdapter(new HomeListAdapter(getActivity()));
+
     }
 
     private void getData() {
@@ -52,7 +53,7 @@ public class HomeFragment extends Fragment {
         call.enqueue(new Callback<HomeCardBean>() {
             @Override
             public void onResponse(Call<HomeCardBean> call, Response<HomeCardBean> response) {
-                if (BuildConfig.DEBUG) Log.d("HomeFragment", "response.body():" + response.body());
+                initList(response.body().getData());
             }
 
             @Override
@@ -60,6 +61,11 @@ public class HomeFragment extends Fragment {
                 Log.d("HomeFragment", "失败");
             }
         });
+    }
+
+    private void initList(List<HomeCardBean.DataBean> dataList) {
+        rv_list.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rv_list.setAdapter(new HomeListAdapter(getActivity(), dataList));
     }
 
 
