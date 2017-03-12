@@ -5,7 +5,7 @@
     android:id="@+id/cl_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.vmovie.MainActivity">
+    tools:context="com.example.vmovie.activity.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -20,10 +20,17 @@
             app:popupTheme="@style/ToolBarPopupTheme"
             app:title="V电影">
         </android.support.v7.widget.Toolbar>
+
         <android.support.design.widget.TabLayout
             android:id="@+id/tl_tab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
+            android:layout_height="wrap_content"
+            app:tabTextColor="@color/colorTextWhite"
+            app:tabSelectedTextColor="#DE8A2A"
+            app:tabIndicatorColor="@color/colorTextWhite"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            ></android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
@@ -48,6 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:bnbActiveColor="?attr/colorPrimary"></com.ashokvarma.bottomnavigation.BottomNavigationBar>
+        app:bnbBackgroundColor="?attr/colorPrimary"
+        app:bnbActiveColor="#DE8A2A"
+        app:bnbInactiveColor="@color/colorTextWhite"></com.ashokvarma.bottomnavigation.BottomNavigationBar>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -16,7 +16,8 @@
     </style>
 
     <style name="ToolBarPopupTheme" parent="@style/Theme.AppCompat">
-        <item name="android:actionMenuTextColor">@color/colorTextBlack</item>
+        <item name="android:actionMenuTextColor">@color/colorTextWhite</item>
+        <item name="android:popupBackground">@color/colorToolBar</item>
     </style>
 
 

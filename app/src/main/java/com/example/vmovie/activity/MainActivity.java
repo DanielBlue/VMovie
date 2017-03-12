@@ -1,4 +1,4 @@
-package com.example.vmovie;
+package com.example.vmovie.activity;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -9,6 +9,7 @@ import android.view.Menu;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.example.vmovie.R;
 import com.example.vmovie.adapter.HomePagerAdapter;
 
 import org.androidannotations.annotations.AfterViews;
@@ -61,6 +62,4 @@ public class MainActivity extends AppCompatActivity {
     private void initToolBar() {
         setSupportActionBar(toolbar);
     }
-
-
 }
