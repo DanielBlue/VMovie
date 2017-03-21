@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.vmovie.R;
 import com.example.vmovie.bean.HomeCardBean;
+import com.example.vmovie.util.Utils;
 
 import java.util.List;
 
@@ -28,21 +29,27 @@ public class HomeListAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = View.inflate(context,R.layout.item_home_list, null);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
-
-
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-//        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,1000);
-//        holder.itemView.setLayoutParams(params);
-        Glide.with(context).load(dataList.get(position).getImage()).into(holder.iv_item);
-        holder.tv_title.setText(dataList.get(position).getWx_small_app_title());
-//        holder.tv_cate.setText(""+dataList.get(position).getCates() + " / " + Utils.formatVideoDuration(dataList.get(position).getDuration()));
+        if (position==0){
+
+        }else {
+            Utils.adjustContrast(holder.iv_item,-40);
+            Glide.with(context).load(dataList.get(position).getImage()).into(holder.iv_item);
+            holder.tv_title.setText(dataList.get(position).getWx_small_app_title());
+            holder.tv_cate.setText(dataList.get(position).getCates().get(0).getCatename()+" / "+Utils.formatVideoDuration(dataList.get(position).getDuration()));
+        }
     }
 
     @Override
@@ -60,6 +67,6 @@ class ViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         tv_cate = (TextView) itemView.findViewById(R.id.tv_cate);
         tv_title = (TextView) itemView.findViewById(R.id.tv_title);
-        iv_item = (ImageView) itemView.findViewById(R.id.iv_item);
+        iv_item = (ImageView) itemView.findViewById(R.id.iv_iv_item);
     }
 }
